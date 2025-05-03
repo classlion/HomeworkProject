@@ -1,4 +1,4 @@
-package com.ait.homework;//package com.phonbook.tests;
+package com.ait.homework.test;//package com.phonbook.tests;
 //
 //import com.homeworkProject.models.UserHomework;
 //import org.openqa.selenium.By;

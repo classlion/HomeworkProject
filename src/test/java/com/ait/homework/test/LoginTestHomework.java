@@ -1,4 +1,4 @@
-package com.ait.homework;
+package com.ait.homework.test;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
