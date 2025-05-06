@@ -2,6 +2,9 @@ package com.homeworkProject.models;
 public class UserHomework {
     private String email;
     private String password;
+    private String firstName;
+    private String lastName;
+    private String confirmPassword;
 
     public UserHomework setEmail(String email) {
         this.email = email;
@@ -18,56 +21,30 @@ public class UserHomework {
         return password;
     }
 
-    public static class NewUserHomework{
-        String firstName;
-        String lastName;
-        String email;
-        String password;
-        String confirmPassword;
+    public String getFirstName() {
+        return firstName;
+    }
 
-        public String getFirstName() {
-            return firstName;
-        }
+    public UserHomework setFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
 
-        public String getLastName() {
-            return lastName;
-        }
+    public String getLastName() {
+        return lastName;
+    }
 
-        public String getEmail() {
-            return email;
-        }
+    public UserHomework setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
 
-        public String getPassword() {
-            return password;
-        }
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
 
-        public String getConfirmPassword() {
-            return confirmPassword;
-        }
-
-        public NewUserHomework setFirstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-        public NewUserHomework setLastName(String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-        public NewUserHomework setEmail(String email) {
-            this.email = email;
-            return this;
-        }
-
-        public NewUserHomework setPassword(String password) {
-            this.password = password;
-            return this;
-        }
-
-        public NewUserHomework setConfirmPassword(String confirmPassword) {
-            this.confirmPassword = confirmPassword;
-            return this;
-        }
+    public UserHomework setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+        return this;
     }
 }

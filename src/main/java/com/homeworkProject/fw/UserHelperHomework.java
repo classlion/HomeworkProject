@@ -10,8 +10,16 @@ public class UserHelperHomework extends BaseHelperHomework{
         super(driver);
     }
 
-    protected void fillRagesterLoginForm(UserHomework user) {
+    public void fillRagesterLoginForm(UserHomework user) {
         type(By.id("Email"), user.getEmail());
         type(By.id("Password"), user.getPassword());
+        type(By.id("FirstName"), user.getFirstName());
+        type(By.id("LastName"), user.getLastName());
+        type(By.id("ConfirmPassword"), user.getConfirmPassword());
+
     }
+
+
+
+
 }
