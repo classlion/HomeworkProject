@@ -48,7 +48,7 @@ public class TestBaseHomework {
                     app.getUser().takeScreenshot());
         }
 
-        logger.info("====================================================================");
+        logger.info("==================");
 
         logger.info("Stop test");
     }
