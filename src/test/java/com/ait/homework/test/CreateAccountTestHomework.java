@@ -3,10 +3,18 @@ package com.ait.homework.test;
 
 import com.homeworkProject.data.UserData;
 import com.homeworkProject.models.UserHomework;
+import com.homeworkProject.utils.DataProviders;
+import com.phonebook.models.Contact;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class CreateAccountTestHomework extends TestBaseHomework {
 
@@ -14,9 +22,6 @@ public class CreateAccountTestHomework extends TestBaseHomework {
 
     @Test
     public void newUserRegistrationPositiveTest(){
-        //click on Login Link
-
-        //2-57-52-L26
 
         appHomework.getUser().click(By.cssSelector("[href='/register']"));
         appHomework.getUser().fillRagesterLoginForm(new UserHomework()
@@ -25,6 +30,33 @@ public class CreateAccountTestHomework extends TestBaseHomework {
                 .setEmail(UserData.EMAIL)
                 .setPassword(UserData.PASSWORD)
                 .setConfirmPassword(UserData.CONFIRMPASSWORD));
+        appHomework.getUser().click(By.id("register-button"));
+        Assert.assertTrue(appHomework.getUser().isElementPresent(By.xpath("//h1[.='Register']")));
+    }
+
+    @Test(dataProvider = "addNewUser", dataProviderClass = DataProviders.class)
+    public void newUserRegistrationPositiveFromDataProviderTest(String firstName,
+                                                                String lastName,
+                                                                String email,
+                                                                String password,
+                                                                String confirmPassword){
+
+        appHomework.getUser().click(By.cssSelector("[href='/register']"));
+        appHomework.getUser().fillRagesterLoginForm(new UserHomework()
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setEmail(email)
+                .setPassword(password)
+                .setConfirmPassword(confirmPassword));
+        appHomework.getUser().click(By.id("register-button"));
+        Assert.assertTrue(appHomework.getUser().isElementPresent(By.xpath("//h1[.='Register']")));
+    }
+
+    @Test(dataProvider = "addNewUserWithCSV", dataProviderClass = DataProviders.class)
+    public void newUserRegistrationPositiveFromDataProviderWithFileTest(UserHomework userHomework){
+
+        appHomework.getUser().click(By.cssSelector("[href='/register']"));
+        appHomework.getUser().fillRagesterLoginForm(userHomework);
         appHomework.getUser().click(By.id("register-button"));
         Assert.assertTrue(appHomework.getUser().isElementPresent(By.xpath("//h1[.='Register']")));
     }

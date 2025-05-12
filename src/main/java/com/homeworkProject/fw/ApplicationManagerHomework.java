@@ -1,10 +1,13 @@
 package com.homeworkProject.fw;
 
+import com.homeworkProject.utils.MyListener;
 import com.phonebook.fw.ApplicationManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.Browser;
+import org.openqa.selenium.support.events.EventFiringDecorator;
+import org.openqa.selenium.support.events.WebDriverListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +17,8 @@ public class ApplicationManagerHomework{
 
     String browser;
     WebDriver driver;
+    Logger logger = LoggerFactory.getLogger(ApplicationManagerHomework.class);
+
 
     UserHelperHomework user;
     ContactHelperHomework contact;
@@ -22,7 +27,7 @@ public class ApplicationManagerHomework{
     public static ApplicationManager app = new ApplicationManager(System.getProperty("browser",
             Browser.CHROME.browserName()));
 
-    Logger logger = LoggerFactory.getLogger(ApplicationManagerHomework.class);
+
 
     public ApplicationManagerHomework(String browser) {
         this.browser = browser;
@@ -31,15 +36,18 @@ public class ApplicationManagerHomework{
     public void initHomework() {
         if(browser.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
-            logger.info("Test start in Firefox browser");
+            logger.info("Test start in Chrome browser");
 
         } else  if (browser.equalsIgnoreCase("firefox")){
 
             driver = new FirefoxDriver();
             logger.info("Test start in Firefox browser");
         }
+        WebDriverListener listener = new MyListener();
+        driver = new EventFiringDecorator<>(listener).decorate(driver);
 
         driver.get("https://demowebshop.tricentis.com/");
+        logger.info("Current url-->" + driver.getCurrentUrl());
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
