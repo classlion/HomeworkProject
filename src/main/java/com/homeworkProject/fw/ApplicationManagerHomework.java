@@ -18,6 +18,7 @@ public class ApplicationManagerHomework{
     String browser;
     WebDriver driver;
     Logger logger = LoggerFactory.getLogger(ApplicationManagerHomework.class);
+    //
 
 
     UserHelperHomework user;
