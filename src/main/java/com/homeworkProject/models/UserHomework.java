@@ -1,9 +1,9 @@
 package com.homeworkProject.models;
 public class UserHomework {
-    private String email;
-    private String password;
     private String firstName;
     private String lastName;
+    private String email;
+    private String password;
     private String confirmPassword;
 
     public UserHomework setEmail(String email) {
@@ -46,5 +46,13 @@ public class UserHomework {
     public UserHomework setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "UserHomework{" +
+                "firstName='" + firstName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
