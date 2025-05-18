@@ -18,7 +18,7 @@ public class ApplicationManagerHomework{
     String browser;
     WebDriver driver;
     Logger logger = LoggerFactory.getLogger(ApplicationManagerHomework.class);
-    //
+    //1:53:36 L28 - jenkins
 
 
     UserHelperHomework user;

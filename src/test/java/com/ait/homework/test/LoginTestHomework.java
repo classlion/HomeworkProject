@@ -9,7 +9,7 @@ public class LoginTestHomework extends TestBaseHomework {
     @Test
     public void loginPositiveTest() {
         clickOnLoginButton();
-        enterPersonalData("classlion1@gmail.com", "Aa123456$");
+        enterPersonalData("classlion1@gmail.com", "123456");
         clickOnLoginSubmitButton();
         isSignOutButtonPresent();
     }
